@@ -1,16 +1,17 @@
 /* eslint-disable class-methods-use-this */
-const blockImg = document.getElementsByClassName('block-img')[0];
-const elementError = document.getElementById('error-url');
-const elementNameImg = document.getElementById('name-img');
-const elementURLImg = document.getElementById('url-img');
-
 export default class AddImg {
+  constructor(blockImg, elementError, elementNameImg, elementURLImg) {
+    this.blockImg = blockImg;
+    this.elementError = elementError;
+    this.elementNameImg = elementNameImg;
+    this.elementURLImg = elementURLImg;
+  }
   createImg(name, url) {
     const addImgElement = document.createElement('img');
     addImgElement.src = url;
 
     addImgElement.addEventListener('load', () => {
-      elementError.classList.add('hidden');
+      this.elementError.classList.add('hidden');
       addImgElement.className = 'item-img';
       addImgElement.alt = name;
 
@@ -19,13 +20,13 @@ export default class AddImg {
       addDivImg.className = 'item-img-div';
       addDivImg.innerHTML = '<div class="close">x</div>';
       addDivImg.appendChild(addImgElement);
-      blockImg.appendChild(addDivImg);
-      elementNameImg.value = '';
-      elementURLImg.value = '';
+      this.blockImg.appendChild(addDivImg);
+      this.elementNameImg.value = '';
+      this.elementURLImg.value = '';
     });
 
     addImgElement.addEventListener('error', () => {
-      elementError.classList.remove('hidden');
+      this.elementError.classList.remove('hidden');
     });
   }
 }

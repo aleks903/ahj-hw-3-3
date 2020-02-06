@@ -1,10 +1,12 @@
 import AddImg from './AddImg.js';
 
-const addImg = new AddImg();
 const elementForm = document.getElementById('input-form');
 const elementNameImg = document.getElementById('name-img');
 const elementURLImg = document.getElementById('url-img');
 const blockImg = document.getElementsByClassName('block-img')[0];
+const elementError = document.getElementById('error-url');
+
+const addImg = new AddImg(blockImg, elementError, elementNameImg, elementURLImg);
 let nameImg;
 let urlImg;
 
