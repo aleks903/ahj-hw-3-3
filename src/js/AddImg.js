@@ -6,6 +6,7 @@ export default class AddImg {
     this.elementNameImg = elementNameImg;
     this.elementURLImg = elementURLImg;
   }
+
   createImg(name, url) {
     const addImgElement = document.createElement('img');
     addImgElement.src = url;
